@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>ToDo App</title>
+  </head>
+  <body>
+    <div class="todo">
+      <header class="todo__header">
+        <h1 class="todo__header-title">todo</h1>
+        <div class="todo__theme-switcher"></div>
+      </header>
+      <div class="todo__top-bar">
+        <div class="todos-check"></div>
+        <form action="get" id="add-todo">
+          <input
+            type="text"
+            autocomplete="off"
+            placeholder="Create a new todo.."
+          />
+        </form>
+      </div>
+
+      <div class="todo__main">
+        <ul class="toto__list">
+          <li class="todos">
+            <div class="todos__check"></div>
+            <p class="todos__name handle">Complete online Javascript course</p>
+            <div class="todos__delete">
+              <img src="./img/icon-cross.svg" alt="" />
+            </div>
+          </li>
+          <li class="todos">
+            <div class="todos__check"></div>
+            <p class="todos__name handle">Build a cool TODO App</p>
+            <div class="todos__delete">
+              <img src="./img/icon-cross.svg" alt="" />
+            </div>
+          </li>
+          <li class="todos">
+            <div class="todos__check"></div>
+            <p class="todos__name handle">Build awesome project</p>
+            <div class="todos__delete">
+              <img src="./img/icon-cross.svg" alt="" />
+            </div>
+          </li>
+          <li class="todos">
+            <div class="todos__check"></div>
+            <p class="todos__name handle">Finish StarWars Hangman game</p>
+            <div class="todos__delete">
+              <img src="./img/icon-cross.svg" alt="" />
+            </div>
+          </li>
+          <li class="todos">
+            <div class="todos__check"></div>
+            <p class="todos__name handle">Play ML</p>
+            <div class="todos__delete">
+              <img src="./img/icon-cross.svg" alt="" />
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="todo__controll-pannel">
+        <p class="todo__counter">5 items left</p>
+        <ul class="todo__filter-list">
+          <li class="filter active" id="all">all</li>
+          <li class="filter" id="active">active</li>
+          <li class="filter" id="completed">completed</li>
+        </ul>
+        <div class="clear-completed">Clear Completed</div>
+      </div>
+
+      <p class="todo__reminder">Drag and drop to reorder list</p>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

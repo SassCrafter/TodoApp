@@ -1,0 +1,202 @@
+// Vars
+
+// Colors
+$brightBlue: #3a7bfd;
+$CheckBackground: linear-gradient(to right, #57ddff, #c058f3);
+// dark theme
+$VeryDarkBlue: #161722;
+$VeryDarkDesaturatedBlue: #25273c;
+$LightGrayishBlueDark: #cacde8;
+$DarkGrayishBlueDark: #777a92;
+$VeryDarkGrayishBlueDark: #4d5066;
+$VeryDarkGrayishBlueDark2: #393a4c;
+// light theme
+$VeryLightGray: #fafafa;
+$VeryLightGrayishBlue: #e4e5f1;
+$LightGrayishBlueLight: #d2d3db;
+$DarkGrayishBlueLight: #9394a5;
+$VeryDarkGrayishBlueLight: #484b6a;
+
+// Css Reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Josefin Sans", sans-serif;
+  line-height: 1.6;
+  background-color: $VeryDarkBlue;
+  background-image: url("../img/bg-mobile-dark.jpg");
+  background-repeat: no-repeat;
+  color: $VeryLightGrayishBlue;
+
+  &.light-theme {
+    background-color: $VeryLightGray;
+    background-image: url("../img/bg-mobile-light.jpg");
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.todo {
+  width: 90%;
+  max-width: 500rem;
+  margin: 4rem auto;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    &-title {
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8rem;
+      color: $VeryLightGray;
+    }
+  }
+
+  &__theme-switcher {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url("../img/icon-sun.svg") center no-repeat;
+
+    &.light-theme {
+      background: url("../img/icon-moon.svg") center no-repeat;
+    }
+  }
+
+  &__top-bar,
+  &__main,
+  &__controll-pannel,
+  &__filter-list {
+    background: $VeryDarkDesaturatedBlue;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    color: $LightGrayishBlueDark;
+  }
+
+  &__top-bar {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 0.5rem 0;
+      font-size: 1.6rem;
+      font-family: inherit;
+      display: inline-block;
+    }
+  }
+
+  &__main {
+    margin-bottom: 0;
+  }
+
+  .todos {
+    padding: 1rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $VeryDarkGrayishBlueDark;
+
+    &__check,
+    &-check {
+      display: inline-block;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 1rem;
+      border-radius: 50%;
+      border: 1px solid $VeryDarkGrayishBlueDark;
+      background: transparent;
+    }
+    &__name {
+      width: 80%;
+    }
+    &__delete {
+      width: 2.8rem;
+      height: 2.8rem;
+      padding: 0.4rem;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__controll-pannel {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    position: relative;
+    margin-bottom: 8rem;
+  }
+
+  &__filter-list {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    bottom: -6rem;
+    margin-bottom: 0;
+  }
+
+  .filter {
+    text-transform: capitalize;
+
+    &.active {
+      color: $brightBlue;
+    }
+  }
+
+  &__reminder {
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  &.light-theme {
+    .todo__top-bar,
+    .todo__main,
+    .todo__controll-pannel,
+    .todo__filter-list {
+      background: #fff;
+      color: $VeryDarkGrayishBlueLight;
+    }
+    .todos {
+      border-bottom-color: $LightGrayishBlueLight;
+      &__check,
+      &-check {
+        border-color: $VeryLightGrayishBlue;
+      }
+    }
+
+    .todo-reminder {
+      color: $VeryDarkGrayishBlueLight;
+    }
+  }
+}
