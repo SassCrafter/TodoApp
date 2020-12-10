@@ -37,6 +37,7 @@ body {
   background-color: $VeryDarkBlue;
   background-image: url("../img/bg-mobile-dark.jpg");
   background-repeat: no-repeat;
+  background-size: 100%;
   color: $VeryLightGrayishBlue;
 
   &.light-theme {
@@ -55,7 +56,7 @@ img {
 
 .todo {
   width: 90%;
-  max-width: 500rem;
+  max-width: 52rem;
   margin: 4rem auto;
 
   &__header {
@@ -75,6 +76,7 @@ img {
   &__theme-switcher {
     width: 2.5rem;
     height: 2.5rem;
+    cursor: pointer;
     background: url("../img/icon-sun.svg") center no-repeat;
 
     &.light-theme {
@@ -96,16 +98,23 @@ img {
     padding: 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    form {
+      width: 95%;
+    }
 
     input {
       width: 100%;
       border: none;
       outline: none;
       background: transparent;
-      padding: 0.5rem 0;
+      padding: 0.5rem 1.6rem;
       font-size: 1.6rem;
       font-family: inherit;
+      color: $LightGrayishBlueDark;
       display: inline-block;
+      cursor: pointer;
     }
   }
 
@@ -114,35 +123,47 @@ img {
   }
 
   .todos {
-    padding: 1rem;
+    padding: 0 1rem;
     font-size: 1.6rem;
     font-weight: 300;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid $VeryDarkGrayishBlueDark;
+    cursor: pointer;
+    &.is-completed {
+      text-decoration: line-through;
+
+      .todos__check {
+        background: linear-gradient(to right, #57ddff, #c058f3);
+      }
+    }
 
     &__check,
     &-check {
-      display: inline-block;
       width: 2.5rem;
       height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-right: 1rem;
       border-radius: 50%;
       border: 1px solid $VeryDarkGrayishBlueDark;
       background: transparent;
+      cursor: pointer;
     }
     &__name {
-      width: 80%;
+      width: 85%;
+      padding: 1rem;
     }
     &__delete {
-      width: 2.8rem;
-      height: 2.8rem;
-      padding: 0.4rem;
-      img {
-        width: 100%;
-        height: 100%;
-      }
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+      //padding: 0.4rem;
+      cursor: pointer;
+      background: url('../img/icon-cross.svg') no-repeat center center/cover;
+      
     }
   }
 
@@ -168,10 +189,15 @@ img {
 
   .filter {
     text-transform: capitalize;
+    cursor: pointer;
 
     &.active {
       color: $brightBlue;
     }
+  }
+
+  .clear-completed {
+    cursor: pointer;
   }
 
   &__reminder {
@@ -187,16 +213,52 @@ img {
       background: #fff;
       color: $VeryDarkGrayishBlueLight;
     }
+    .todo__top-bar input {
+      color: $VeryDarkGrayishBlueLight;
+    }
+    .todo__main {
+      box-shadow: 0 0 5rem 1px rgba(228, 229, 241, .6);
+    }
+    .todo__controll-pannel {
+      box-shadow: 0 2rem 3rem  rgba(228, 229, 241, .6);
+    }
     .todos {
-      border-bottom-color: $LightGrayishBlueLight;
+      border-bottom-color: lighten($LightGrayishBlueLight, 10%);
       &__check,
       &-check {
         border-color: $VeryLightGrayishBlue;
       }
     }
 
-    .todo-reminder {
+    .todo__reminder {
       color: $VeryDarkGrayishBlueLight;
     }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  body {
+    padding-top: 3rem;
+    background-image: url("../img/bg-desktop-dark.jpg");
+    &.light-theme {
+      background-image: url("../img/bg-desktop-light.jpg");
+    }
+  }
+
+  .todo__filter-list {
+    position: static;
+    padding: 0;
+    width: auto;
+
+    .filter:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    padding-top: 15rem;
   }
 }

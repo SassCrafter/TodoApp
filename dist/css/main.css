@@ -3,6 +3,7 @@
 *::after {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -17,6 +18,7 @@ body {
   background-color: #161722;
   background-image: url("../img/bg-mobile-dark.jpg");
   background-repeat: no-repeat;
+  background-size: 100%;
   color: #e4e5f1;
 }
 
@@ -35,13 +37,19 @@ img {
 
 .todo {
   width: 90%;
-  max-width: 500rem;
+  max-width: 52rem;
   margin: 4rem auto;
 }
 
 .todo__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
@@ -56,6 +64,7 @@ img {
 .todo__theme-switcher {
   width: 2.5rem;
   height: 2.5rem;
+  cursor: pointer;
   background: url("../img/icon-sun.svg") center no-repeat;
 }
 
@@ -63,7 +72,10 @@ img {
   background: url("../img/icon-moon.svg") center no-repeat;
 }
 
-.todo__top-bar, .todo__main, .todo__controll-pannel, .todo__filter-list {
+.todo__top-bar,
+.todo__main,
+.todo__controll-pannel,
+.todo__filter-list {
   background: #25273c;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
@@ -72,8 +84,19 @@ img {
 
 .todo__top-bar {
   padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.todo__top-bar form {
+  width: 95%;
 }
 
 .todo__top-bar input {
@@ -81,10 +104,12 @@ img {
   border: none;
   outline: none;
   background: transparent;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1.6rem;
   font-size: 1.6rem;
   font-family: inherit;
+  color: #cacde8;
   display: inline-block;
+  cursor: pointer;
 }
 
 .todo__main {
@@ -92,42 +117,77 @@ img {
 }
 
 .todo .todos {
-  padding: 1rem;
+  padding: 0 1rem;
   font-size: 1.6rem;
   font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   border-bottom: 1px solid #4d5066;
+  cursor: pointer;
 }
 
-.todo .todos__check, .todo .todos-check {
-  display: inline-block;
+.todo .todos.is-completed {
+  text-decoration: line-through;
+}
+
+.todo .todos.is-completed .todos__check {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#57ddff),
+    to(#c058f3)
+  );
+  background: -o-linear-gradient(left, #57ddff, #c058f3);
+  background: linear-gradient(to right, #57ddff, #c058f3);
+}
+
+.todo .todos__check,
+.todo .todos-check {
   width: 2.5rem;
   height: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-right: 1rem;
   border-radius: 50%;
   border: 1px solid #4d5066;
   background: transparent;
+  cursor: pointer;
 }
 
 .todo .todos__name {
-  width: 80%;
+  width: 85%;
+  padding: 1rem;
 }
 
 .todo .todos__delete {
-  width: 2.8rem;
-  height: 2.8rem;
-  padding: 0.4rem;
-}
-
-.todo .todos__delete img {
-  width: 100%;
-  height: 100%;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  background: url("../img/icon-cross.svg") no-repeat center center/cover;
 }
 
 .todo__controll-pannel {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1rem;
   position: relative;
@@ -137,8 +197,14 @@ img {
 .todo__filter-list {
   width: 100%;
   padding: 1rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   position: absolute;
   left: 0;
@@ -148,10 +214,15 @@ img {
 
 .todo .filter {
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .todo .filter.active {
   color: #3a7bfd;
+}
+
+.todo .clear-completed {
+  cursor: pointer;
 }
 
 .todo__reminder {
@@ -167,14 +238,53 @@ img {
   color: #484b6a;
 }
 
-.todo.light-theme .todos {
-  border-bottom-color: #d2d3db;
+.todo.light-theme .todo__top-bar input {
+  color: #484b6a;
 }
 
-.todo.light-theme .todos__check, .todo.light-theme .todos-check {
+.todo.light-theme .todo__main {
+  -webkit-box-shadow: 0 0 5rem 1px rgba(228, 229, 241, 0.6);
+  box-shadow: 0 0 5rem 1px rgba(228, 229, 241, 0.6);
+}
+
+.todo.light-theme .todo__controll-pannel {
+  -webkit-box-shadow: 0 2rem 3rem rgba(228, 229, 241, 0.6);
+  box-shadow: 0 2rem 3rem rgba(228, 229, 241, 0.6);
+}
+
+.todo.light-theme .todos {
+  border-bottom-color: #eeeff2;
+}
+
+.todo.light-theme .todos__check,
+.todo.light-theme .todos-check {
   border-color: #e4e5f1;
 }
 
-.todo.light-theme .todo-reminder {
+.todo.light-theme .todo__reminder {
   color: #484b6a;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding-top: 3rem;
+    background-image: url("../img/bg-desktop-dark.jpg");
+  }
+  body.light-theme {
+    background-image: url("../img/bg-desktop-light.jpg");
+  }
+  .todo__filter-list {
+    position: static;
+    padding: 0;
+    width: auto;
+  }
+  .todo__filter-list .filter:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    padding-top: 15rem;
+  }
 }

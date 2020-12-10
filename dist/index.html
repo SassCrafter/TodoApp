@@ -24,46 +24,37 @@
             type="text"
             autocomplete="off"
             placeholder="Create a new todo.."
+            class="todo__input"
           />
         </form>
       </div>
 
       <div class="todo__main">
-        <ul class="toto__list">
-          <li class="todos">
+        <ul class="todo__list">
+          <li class="todos handle">
             <div class="todos__check"></div>
-            <p class="todos__name handle">Complete online Javascript course</p>
-            <div class="todos__delete">
-              <img src="./img/icon-cross.svg" alt="" />
-            </div>
+            <p class="todos__name ">Complete online Javascript course</p>
+            <div class="todos__delete"></div>
           </li>
-          <li class="todos">
+          <li class="todos handle">
             <div class="todos__check"></div>
-            <p class="todos__name handle">Build a cool TODO App</p>
-            <div class="todos__delete">
-              <img src="./img/icon-cross.svg" alt="" />
-            </div>
+            <p class="todos__name">Build a cool TODO App</p>
+            <div class="todos__delete"></div>
           </li>
-          <li class="todos">
+          <li class="todos handle">
             <div class="todos__check"></div>
-            <p class="todos__name handle">Build awesome project</p>
-            <div class="todos__delete">
-              <img src="./img/icon-cross.svg" alt="" />
-            </div>
+            <p class="todos__name ">Build awesome project</p>
+            <div class="todos__delete"></div>
           </li>
-          <li class="todos">
+          <li class="todos handle">
             <div class="todos__check"></div>
-            <p class="todos__name handle">Finish StarWars Hangman game</p>
-            <div class="todos__delete">
-              <img src="./img/icon-cross.svg" alt="" />
-            </div>
+            <p class="todos__name ">Finish StarWars Hangman game</p>
+            <div class="todos__delete"></div>
           </li>
-          <li class="todos">
+          <li class="todos handle">
             <div class="todos__check"></div>
-            <p class="todos__name handle">Play ML</p>
-            <div class="todos__delete">
-              <img src="./img/icon-cross.svg" alt="" />
-            </div>
+            <p class="todos__name ">Play ML</p>
+            <div class="todos__delete"></div>
           </li>
         </ul>
       </div>
@@ -72,7 +63,7 @@
         <p class="todo__counter">5 items left</p>
         <ul class="todo__filter-list">
           <li class="filter active" id="all">all</li>
-          <li class="filter" id="active">active</li>
+          <li class="filter" id="active-filter">active</li>
           <li class="filter" id="completed">completed</li>
         </ul>
         <div class="clear-completed">Clear Completed</div>
@@ -81,6 +72,7 @@
       <p class="todo__reminder">Drag and drop to reorder list</p>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
