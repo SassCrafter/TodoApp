@@ -66,7 +66,6 @@ function addTodo() {
     // Create cross-div
     const crossDiv = document.createElement('div');
     crossDiv.classList.add('todos__delete');
-    crossDiv.innerHTML = '<img src="./img/icon-cross.svg" alt="" />';
     liEl.appendChild(crossDiv);
     // Add this elements to todo__list
     todoList.prepend(liEl);
@@ -82,14 +81,12 @@ function countTodos() {
 
 function completeRemoveTodo(e) {
     const item = e.target;
-    
     if (item.classList[0] === 'todos__delete') {
         item.parentElement.remove();
-    } else {
+    } else if (item.classList[0] !== 'todos') {
         item.parentElement.classList.add('is-completed');
         item.parentElement.children[0].innerHTML = '<img src="./img/icon-check.svg" alt="">';
     }
-    
     countTodos();
 }
 
